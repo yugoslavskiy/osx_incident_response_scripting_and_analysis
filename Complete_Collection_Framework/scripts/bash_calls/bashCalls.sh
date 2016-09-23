@@ -73,9 +73,9 @@ bashCalls_list=(
 
 for type in "${bashCalls_list[@]}"
 do
-	IFS="
-	"
-	result_file="${systemCommands}/${type}.txt"
+  IFS="
+  "
+  result_file="${systemCommands}/${type}.txt"
   touch ${result_file}
 
   commands_list="${type}_commands[@]"
@@ -94,12 +94,12 @@ userInfo=$systemCommands/userInfo.txt
 echo ---Users on this system--- >>$userInfo; dscl . -ls /Users >> $userInfo; echo >> $userInfo
 #for each user
 dscl . -ls /Users | egrep -v ^_ | while read user 
-	do 
-		echo *****$user***** >> $userInfo
-		echo ---id \($user\)--- >>$userInfo; id $user >> $userInfo; echo >> $userInfo
-		echo ---groups \($user\)--- >> $userInfo; groups $user >> $userInfo; echo >> $userInfo
-		echo ---finger \($user\) --- >> $userInfo; finger -m $user >> $userInfo; echo >> $userInfo
-		echo >> $userInfo
-		echo >> $userInfo
-		# find a way to provide printenv
-	done
+  do 
+    echo *****$user***** >> $userInfo
+    echo ---id \($user\)--- >>$userInfo; id $user >> $userInfo; echo >> $userInfo
+    echo ---groups \($user\)--- >> $userInfo; groups $user >> $userInfo; echo >> $userInfo
+    echo ---finger \($user\) --- >> $userInfo; finger -m $user >> $userInfo; echo >> $userInfo
+    echo >> $userInfo
+    echo >> $userInfo
+    # find a way to provide printenv
+  done

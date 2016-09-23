@@ -2,8 +2,8 @@
 
 #ensure that the script is being executed as root
 if [[ $EUID -ne 0 ]]; then 
-	echo 'Incident Response Script needs to be executed as root!'
-	exit 1
+  echo 'Incident Response Script needs to be executed as root!'
+  exit 1
 fi
 
 originalUser=`sh -c 'echo $SUDO_USER'`
@@ -34,7 +34,7 @@ EOF
 pfctl -f $quarentineRule 2>/dev/null
 pfctl -e 2>/dev/null
 if [ $? -eq 0 ]; then
-	echo "Quarentine Enabled. Internet access unavailable"
+  echo "Quarentine Enabled. Internet access unavailable"
 fi
 
 #start tracing tcp connections in the background
